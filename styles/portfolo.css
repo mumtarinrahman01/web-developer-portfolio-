@@ -4,7 +4,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
-    "wdth" 100;
+    "width" 100;
     color: darkslategrey;
 }
 .text-primary{
@@ -79,13 +79,16 @@ font-size: 85px;
 }
 .secondary-bg{
     background-color: antiquewhite;
-    padding: 250px;
+    padding: 25px;
+}
+main section{
+    margin-top: 130px;
+    margin-bottom: 130px;
 }
 .about{
     border-radius: 10px;
     padding: 130px 150px;
     text-align: center;
-    margin-top: 130px;
 }
 main{
     max-width: 1140px;
@@ -97,4 +100,16 @@ main{
 .about-items{
     display: flex;
     justify-content: space-around;
+}
+.text-center{
+    text-align: center;
+}
+.skills-container{
+    display: flex;
+    gap: 24px;
+}
+.skills{
+    padding: 30px;
+    box-shadow: 0px 6px 50px 0px rgba(0,0,0,0.08);
+    border-radius: 5px;
 }

@@ -1,153 +1,235 @@
+/* Layout + sizing baseline */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-.open-sans-normal {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings:
-    "width" 100;
-    color: darkslategrey;
+html {
+  scroll-behavior: smooth;
 }
-.text-primary{
-    color: darkorange;
-}
-nav ul{
-    display: flex;  
-    align-items: center;
-}
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 200px;
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
-.nav-title{
-    font-weight: 800;
-    font-size: 45px;
-}
-nav ul li{
-    list-style: none;
-    margin-right: 50px;
-}
-nav li a{
-    text-decoration: none;
-}
-.dark2{
-    color: darkslategray;
-}
-.btn-primary{
-    background-color:darkorange;
-    font-weight: bold;
-    color: white;
-    padding: 18px 35px;
-    border-radius: 5px;
-    border: none;
-}
-.btitle{
-font-weight:bold;
-font-size: 85px;
-}
-.bgreatings{
-    font-size: 45px;
-    font-weight: 600;
 
+/* A simple container approach (works with your existing main) */
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
-.bannerpic{
-    width: 580px;
+
+/* More flexible spacing on big screens instead of fixed margins */
+nav {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
-.banner{
-    display: flex;
-    justify-content: space-between;
-    margin: 0 35px 0 200px;
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
 }
-.banner-content{
-    max-width: 580px;
+
+nav ul li {
+  list-style: none;
+  margin-right: 0; /* gap handles spacing now */
 }
-.header{
-    background-image: url(../images/developer.png), url(../images/header_bg.png);
-    background-repeat: no-repeat;
-    background-position: top left, bottom right;
+
+nav li a {
+  text-decoration: none;
 }
-.section-title{
-    font-size: 35px;
-    font-weight: bold;
-    color: darkslategrey;
+
+/* Banner becomes fluid */
+.banner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
 }
-.section-description{
-    font-size: 18px;
-    color: dimgray;
+
+.banner-content {
+  max-width: 580px;
 }
-.secondary-bg{
-    background-color: antiquewhite;
-    padding: 25px;
+
+.bannerpic {
+  width: min(580px, 100%);
 }
-main section{
-    margin-top: 130px;
-    margin-bottom: 130px;
+
+/* Comfortable, scalable type */
+.nav-title {
+  font-weight: 800;
+  font-size: clamp(32px, 3.2vw, 45px);
 }
-.about{
-    border-radius: 10px;
-    padding: 130px 150px;
-    text-align: center;
+
+.bgreatings {
+  font-size: clamp(22px, 3.2vw, 45px);
+  font-weight: 600;
 }
-main{
-    max-width: 1140px;
-    margin: 0 auto;
+
+.btitle {
+  font-weight: 800;
+  font-size: clamp(40px, 6vw, 85px);
+  line-height: 1.05;
 }
-.item-description{
-    font-weight: 600;
+
+/* Sections spacing scales nicely */
+main section {
+  margin: clamp(60px, 8vw, 130px) 0;
 }
-.about-items{
-    display: flex;
-    justify-content: space-around;
+
+/* Cards/grids wrap instead of overflowing */
+.about {
+  border-radius: 10px;
+  padding: clamp(40px, 6vw, 130px) clamp(16px, 6vw, 150px);
+  text-align: center;
 }
-.text-center{
-    text-align: center;
+
+.about-items {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  flex-wrap: wrap;
 }
-.skills-container{
-    display: flex;
+
+.skills-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.skills {
+  padding: 30px;
+  box-shadow: 0px 6px 50px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  flex: 1 1 240px; /* wraps nicely on smaller screens */
+  min-width: 240px;
+}
+
+.resume-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.resume-container > div {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+/* Footer layout that adapts */
+.footer {
+  display: flex;
+  gap: 60px;
+  padding: clamp(50px, 6vw, 130px) clamp(16px, 8vw, 230px);
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1 1 320px;
+  width: auto;
+  min-width: 280px;
+}
+
+footer input[type="text"],
+footer input[type="email"],
+footer textarea {
+  width: 100%;
+  border-radius: 6px;
+  background-color: #fff;
+  display: block;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+
+footer textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Buttons feel better on touch devices */
+.btn-primary {
+  background-color: darkorange;
+  font-weight: 700;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* -------- Breakpoints (small adjustments, not full rewrites) -------- */
+
+/* Laptops / small desktops */
+@media (max-width: 1024px) {
+  .banner {
     gap: 24px;
+  }
+
+  .banner-content {
+    max-width: 520px;
+  }
 }
-.skills{
-    padding: 30px;
-    box-shadow: 0px 6px 50px 0px rgba(0,0,0,0.08);
-    border-radius: 5px;
-}
-.resume-container{
-    display: flex;
-    gap: 24px;
-}
-.experience-description{
-    color: #757575;
-}
-.experience-sub-title{
-    color: #757575;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-.resume hr{
-    margin: 30px 5px;
-}
-.resume-dnld-cv{
-    margin-top: 50px;
-}
-.footer{
-    display: flex;
-    padding: 130px 230px;
-    gap: 100px;
-}
-.footer-column{
-    width: 50%;
-}
-footer input[type="text"], footer input[type="email"], footer textarea
-{
-    height: 64px;
-    border-radius: 5px;
-    background-color: white;
-    display: block;
+
+/* Tablets */
+@media (max-width: 768px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav ul {
     width: 100%;
-    padding: 10px 20px;
-    margin-bottom: 24px;
-    border: none;
+    gap: 14px 18px;
+  }
+
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .bannerpic {
+    max-width: 520px;
+  }
+
+  .about-items {
+    justify-content: center;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  nav {
+    padding: 12px 16px;
+  }
+
+  .banner {
+    padding: 0 16px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
 }
